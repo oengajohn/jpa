@@ -48,6 +48,7 @@ RUN echo "=> Starting WildFly server" && \
     echo "=> Shutting down WildFly and Cleaning up" && \
       $JBOSS_CLI --connect --command=":shutdown" && \
       rm -rf $JBOSS_HOME/standalone/configuration/standalone_xml_history/ $JBOSS_HOME/standalone/log/* && \
+	  java -version && \
       rm -f /tmp/*.jar
 # Expose http and admin ports
 EXPOSE 8080 9990

@@ -22,7 +22,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
          em.persist(customer);
          return customer;
     }
-
+    @Transactional
     @Override
     public Customer read(BigInteger id) {
        return em.find(Customer.class,id);
@@ -41,7 +41,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
          em.remove(read(customer.getId()));
          return true;
     }
-
+    @Transactional
     @Override
     public List<Customer> list() {
         return em.createQuery("select c from Customer c",Customer.class).getResultList();
