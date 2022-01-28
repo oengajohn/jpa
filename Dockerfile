@@ -10,7 +10,7 @@ ENV WILDFLY_PASS Admin@123
 ENV DB_NAME jpa
 ENV DB_USER root
 ENV DB_PASS Admin@123
-ENV DB_URI database:3307
+ENV DB_URI database:3306
 ENV DB_HOST=127.0.0.1
 ENV MYSQL_VERSION 8.0.27
 ENV JBOSS_CLI /opt/jboss/wildfly/bin/jboss-cli.sh
