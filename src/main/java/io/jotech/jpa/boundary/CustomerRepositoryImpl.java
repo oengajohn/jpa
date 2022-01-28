@@ -2,23 +2,21 @@ package io.jotech.jpa.boundary;
 
 import java.math.BigInteger;
 import java.util.List;
-
-import javax.ejb.Stateless;
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
+import static javax.transaction.Transactional.TxType.REQUIRED;
+import static javax.transaction.Transactional.TxType.SUPPORTS;
 import io.jotech.jpa.domain.Customer;
 
 
-@TransactionAttribute(TransactionAttributeType.SUPPORTS)
+@Transactional(SUPPORTS)
 public class CustomerRepositoryImpl implements CustomerRepository {
     @PersistenceContext
     private EntityManager em;
 
-    @TransactionAttribute(TransactionAttributeType.REQUIRED)
+    @Transactional(REQUIRED)
     @Override
     public Customer insert(Customer customer) {
          em.persist(customer);
@@ -30,14 +28,14 @@ public class CustomerRepositoryImpl implements CustomerRepository {
        return em.find(Customer.class,id);
     }
 
-    @TransactionAttribute(TransactionAttributeType.REQUIRED)
+    @Transactional(REQUIRED)
     @Override
     public Customer update(Customer customer) {
         em.merge(customer);
         return customer;
     }
 
-    @TransactionAttribute(TransactionAttributeType.REQUIRED)
+    @Transactional(REQUIRED)
     @Override
     public boolean delete(Customer customer) {
          em.remove(read(customer.getId()));

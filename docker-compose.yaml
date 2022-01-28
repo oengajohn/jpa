@@ -14,8 +14,10 @@ services:
     expose:
       # Opens port 3306 on the container
       - '3306'
+
       # Where our data will be persisted
     volumes:
+      - ./init.sql:/data/application/init.sql
       - my-db:/var/lib/mysql
   pma:
     depends_on:
