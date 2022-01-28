@@ -12,7 +12,7 @@ import javax.transaction.Transactional;
 
 import io.jotech.jpa.domain.Customer;
 
-@Stateless
+
 @TransactionAttribute(TransactionAttributeType.SUPPORTS)
 public class CustomerRepositoryImpl implements CustomerRepository {
     @PersistenceContext

@@ -1,8 +1,6 @@
 package io.jotech.jpa;
 
 import java.math.BigInteger;
-import javax.ejb.EJB;
-import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -19,9 +17,8 @@ import io.jotech.jpa.domain.Customer;
 @Path("/customers")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@Stateless
 public class CustomerResource {
-    @EJB
+    @Inject
     private CustomerRepository customerRepository;
 
     @POST
